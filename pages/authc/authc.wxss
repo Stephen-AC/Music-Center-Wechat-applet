@@ -1,0 +1,79 @@
+/* pages/authc/authc.wxss */
+.login {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size:cover;
+}
+
+.login-context {
+  height: 550rpx;
+  width: 650rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0c2;
+  border-radius: 20rpx;
+}
+
+.logo {
+  height: 130rpx;
+  margin-bottom: 10rpx;
+}
+
+.login-title {
+  font-size: 45rpx;
+}
+
+.login-input {
+  font-size: 35rpx;
+  margin: 10rpx auto;
+  background-color: rgba(178, 34, 34, 0.185);
+  padding: 15rpx 30rpx;
+  border-radius: 20rpx;
+}
+
+.login-placehoder {
+  color: darkslategrey;
+}
+
+
+
+.popup {
+  height: 65vh !important;
+  width: 85vw !important;
+  background-color: ghostwhite !important;
+}
+
+
+.popup-context {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: ghostwhite;
+}
+
+.register-input {
+  font-size: 35rpx;
+  margin: 20rpx auto;
+  padding-left: 15rpx;
+  border-bottom: 3rpx solid darkslategray;
+}
+
+.wrong {
+  border-bottom: 3rpx solid #dc4238;
+}
+
+.feedback-success {
+  color: forestgreen;
+}
+
+.feedback-wrong {
+  color: #dc4238;
+}
+

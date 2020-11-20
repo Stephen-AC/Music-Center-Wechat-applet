@@ -1,0 +1,39 @@
+<!--pages/songList/songList.wxml-->
+<view class="header">
+  <view class="search-box">
+    <input class="search-input" type="text" value="{{searchKey}}" confirm-type="search" placeholder="请输入歌曲名字" placeholder-class="placehoder-class"  bindconfirm="toSearch" bindinput="getSearchKey" />
+    <van-icon name="search" size="55rpx" color="#ecf0f1" bindtap="toSearch"/>
+  </view>
+</view>
+
+<view>
+  <view class="top-list-content">
+    <block wx:for="{{songsList}}" wx:for-item="songItem" wx:for-index="songIndex">
+      <view class="top-list-item" bindtap="playSong" data-song-id="{{songItem.id}}">
+        <view class="song-info">
+          <view class="song-name">
+            {{songItem.name}}
+          </view>
+          <view class="song-singer">
+            <text>{{fun.getSingerName(songItem.artists)}} - </text>
+            <text>{{songItem.album.name}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<wxs module="fun">
+  var getSingerName = function(singerList) {
+    var singers = "";
+    singerList.forEach(function(element) {
+      singers = singers + element.name + '/';
+    });
+    singers = singers.substring(0, singers.length-1);
+    return singers
+  }
+  module.exports.getSingerName = getSingerName;
+</wxs>
+
+

@@ -1,0 +1,55 @@
+<view class="body">
+  <view class="player">
+    <view class="player-bg">
+      <image class="player-bg-image" src="{{songInfo.imgUrl}}" mode="scaleToFill"></image>
+    </view>
+    <view class="player-bg-black">
+    </view>
+    <view class="song-name">{{songInfo.name}}</view>
+    <view class="singer">{{songInfo.singer}}</view>
+    <view class="album">
+      <image class="album-image" src="{{songInfo.imgUrl}}" mode="heightFix"></image>
+    </view>
+    <view class="song-options" bindtap="like" data-id="{{songInfo.id}}">
+      <van-icon name="{{like_icon}}" color="#dc4238" size="65rpx"/>
+    </view>
+    <view class="progress-box">
+      <view class="progress-text">{{format.getFormatDuringTime(currentTime)}}</view>
+      <view class="progress">
+        <van-slider value="{{currentTime}}" bind:drag="drag" bind:change="seek" active-color="#dc4238" max="{{songInfo.duration}}" min="0" step="1" use-button-slot>
+          <view class="custom-button" slot="button">
+          </view>
+        </van-slider>
+      </view>
+      <view class="progress-text">{{format.getFormatDuringTime(songInfo.duration)}}</view>
+    </view>
+    <view class="player-options">
+      <view class="player-options-item" mode="widthFix" bindtap="playAndPause">
+        <image src="{{playPauseImg}}" mode="widthFix"></image>
+      </view>
+    </view>
+  </view>
+</view>
+
+<wxs module="format">
+  var getFormatDuringTime = function(during) {
+    if (during==null || during=="") {
+      return "00:00"
+    } else {
+      var s = Math.floor(during / 1) % 60;
+      during = Math.floor(during / 60);
+      var i = during % 60;
+      during = Math.floor(during / 60);
+      if (s<10) {
+        s = '0' + s
+      }
+      if (i<10) {
+        i = '0' + i
+      }
+      return i + ':' + s;
+    }
+    
+  }
+  module.exports.getFormatDuringTime = getFormatDuringTime
+</wxs>
+

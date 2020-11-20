@@ -1,0 +1,49 @@
+<view class="body">
+  <!-- 未登录 -->
+  <view wx:if="{{!authc}}" class="unauthc" style="background-image: url(/assets/images/userinfo-bg.jpg);">
+    <view class="unauthc-context">
+      <text class="unauthc-title">请先登录</text>
+      <navigator open-type="navigate" url="/pages/authc/authc"><van-button type="primary" color="linear-gradient(to bottom, #FF512F, #DD2476)" round="true" custom-style="width: 175rpx">登录</van-button></navigator>
+    </view>
+  </view>
+  <!-- 已登录 -->
+  <view wx:if="{{authc}}" class="authc">
+    <!-- 头像 -->
+    <view class="avatar">
+      <van-image round fit="cover" width="300rpx" height="300rpx" src="{{'http://localhost:8080/'+userInfo.userAvatar}}" bindtap="changeAvatar"/>
+    </view>
+    <!-- 昵称 -->
+    <view class="alias">
+      {{userInfo.userAlias}}
+    </view>
+    
+    <!-- 我的收藏与最近收听 -->
+    <view class="about-music">
+      <!-- 喜爱歌曲 -->
+      <view class="about-music-item" bindtap="toFavList">
+        <van-icon name="like" size="90rpx" color="#dc4238" />
+        <text>我的喜爱</text>
+      </view>
+      <!-- 最近播放 -->
+      <view class="about-music-item" bindtap="toRecList">
+        <van-icon name="clock" size="90rpx" color="#dc4238"/>
+        <text>最近播放</text>
+      </view>
+    </view>
+    <!-- 个人资料 -->
+    <view class="user-info">
+      <van-cell-group title="个人资料">
+        <van-cell title="电话" value="{{userPhone}}" title-width="20%"/>
+        <van-cell title="性别" value="{{userInfo.userSex}}" title-width="20%"/>
+        <van-cell title="个性签名" value="{{userInfo.userSignature}}" title-width="20%"/>
+      </van-cell-group>
+    </view>
+    <view class="btn-group">
+      <navigator open-type="navigate" url="/pages/editInfo/editInfo" class="edit-info">
+        <van-button type="warning" plain="{{true}}" size="small">修改资料</van-button>
+      </navigator>
+      <van-button type="danger" color="#dc4238" plain="{{true}}" size="small" bindclick="logout">退出登录</van-button>
+    </view>
+    
+  </view>
+</view>

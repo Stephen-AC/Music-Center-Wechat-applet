@@ -1,0 +1,35 @@
+<!--pages/authc/authc.wxml-->
+<view class="body">
+  <view class="login" style="background-image: url(/assets/images/userinfo-bg.jpg);">
+    <view class="login-context">
+      <image class="logo" src="/assets/images/logo.png" mode="heightFix">
+      </image>
+      <text class="login-title">登 录</text>
+      <input class="login-input" type="text" placeholder="请输入手机号" placeholder-class="login-placehoder" bindblur="getPhoneNumber"/>
+      <input class="login-input" password="{{true}}" placeholder="请输入密码" placeholder-class="login-placehoder" bindblur="getPassword"/>
+      <view>
+        <van-button type="primary" color="#dc4238" round="true" custom-style="width: 175rpx;margin-right: 15rpx" bind:click="login">登录</van-button>
+        <van-button type="warning" round="true" custom-style="width: 175rpx" plain="{{false}}" bind:click="showPopup">注册</van-button>
+      </view>
+      <view class="feedback {{feedback_class}}">
+        {{feedback}}
+      </view>
+    </view>
+  </view>
+  <van-popup custom-class="popup" show="{{ show }}" closeable bind:close="onClose">
+    <view class="popup-context">
+      <image class="logo" src="/assets/images/logo.png" mode="heightFix">
+      </image>
+      <text class="login-title">注册</text>
+      <input class="register-input" type="number" value="{{registerPhoneNumber}}" placeholder="请输入手机号" placeholder-class="login-placehoder" bindblur="getRegisterPhoneNumber"/>
+      <input class="register-input {{registerPassword==comfirmPassword?'':'wrong'}}" password="{{true}}" value="{{registerPassword}}" placeholder="请输入密码" placeholder-class="login-placehoder" bindblur="getRegisterPassword"/>
+      <input class="register-input {{registerPassword==comfirmPassword?'':'wrong'}}" password="{{true}}" value="{{comfirmPassword}}" placeholder="请再次输入密码" placeholder-class="login-placehoder" bindblur="getComfirmPassword" />
+      <view>
+        <van-button type="primary" color="#dc4238" round="true" custom-style="width: 175rpx;margin-right: 15rpx" bind:click="submitRegister">提交</van-button>
+      </view>
+      <view class="feedback {{feedback_class}}">
+        {{feedback}}
+      </view>
+    </view>
+  </van-popup>
+</view>

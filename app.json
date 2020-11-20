@@ -1,0 +1,60 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/songList/songList",
+    "pages/player/player",
+    "pages/userinfo/userinfo",
+    "pages/authc/authc",
+    "pages/editInfo/editInfo",
+    "pages/search/search",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#dc4238",
+    "navigationBarTitleText": "巴黎音乐馆",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#dc4238",
+    "backgroundColor": "white",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "遇见咖啡音乐",
+        "iconPath": "./assets/images/home.png",
+        "selectedIconPath": "./assets/images/home-active.png"
+      },
+      {
+        "pagePath": "pages/player/player",
+        "text": "正在播放",
+        "iconPath": "./assets/images/rank-1.png",
+        "selectedIconPath": "./assets/images/rank-1-active.png"
+      },
+      {
+        "pagePath": "pages/userinfo/userinfo",
+        "text": "毕生所爱",
+        "iconPath": "./assets/images/my.png",
+        "selectedIconPath": "./assets/images/my-active.png"
+      }
+    ]
+  },
+  "requiredBackgroundModes": ["audio"],
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "/dist/button/index",
+    "van-image": "/dist/image/index",
+    "van-icon": "/dist/icon/index",
+    "van-field": "/dist/field/index",
+    "van-popup": "/dist/popup/index",
+    "van-divider": "/dist/divider/index",
+    "van-cell": "/dist/cell/index",
+    "van-cell-group": "/dist/cell-group/index",
+    "van-slider": "/dist/slider/index",
+    "van-picker": "/dist/picker/index",
+    "van-nav-bar": "/dist/nav-bar/index"
+  }
+}

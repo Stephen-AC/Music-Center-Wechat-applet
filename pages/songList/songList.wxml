@@ -1,0 +1,40 @@
+<!--pages/songList/songList.wxml-->
+<view>
+  <view class="top-list-info">
+    <view class="top-list-bg">
+      <van-image width="100%" height="100%" fit="cover" src="{{bgImg}}" />
+    </view>
+  </view>
+  <view class="top-list-content">
+    <block wx:for="{{topList}}" wx:for-item="songItem" wx:for-index="songIndex">
+      <view class="top-list-item" bindtap="playSong" data-song-id="{{songItem.id}}">
+        <view class="rank">
+          {{songIndex+1}}
+        </view>
+        <view class="song-img">
+          <van-image width="100%" height="100%" fit="cover" src="{{songItem.al.picUrl}}" />
+        </view>
+        <view class="song-info">
+          <view class="song-name">
+            {{songItem.name}}
+          </view>
+          <view class="song-singer">{{fun.getSingerName(songItem.ar)}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<wxs module="fun">
+  var getSingerName = function(singerList) {
+    var singers = "";
+    singerList.forEach(function(element) {
+      singers = singers + element.name + '/';
+    });
+    singers = singers.substring(0, singers.length-1);
+    return singers
+  }
+  module.exports.getSingerName = getSingerName;
+</wxs>
+
+

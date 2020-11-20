@@ -1,0 +1,6 @@
+@import "/dist/weui.wxss";
+@import "/dist/common/index.wxss";
+
+.red-btn {
+  background-color: #dc4238;
+}

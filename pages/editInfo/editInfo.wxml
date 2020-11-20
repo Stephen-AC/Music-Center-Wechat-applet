@@ -1,0 +1,24 @@
+
+<van-cell-group title="修改个人资料">
+  <van-field value="{{userInfo.userAlias}}" label="昵称" placeholder="请输入新昵称"  input-align="right" bind:blur="changeUserInfo" data-item="userAlias" maxlength="25" show-word-limit="{{true}}"/>
+
+  <van-field value="{{userPhone}}" error-message="{{phoneFeedback}}" label="电话" type="number" placeholder="请输入新电话" input-align="right" bind:blur="changePhoneNumber"/>
+
+  <van-field value="{{userInfo.userSex}}" label="性别" readonly="true" input-align="right" bindtap="onOpen"/>
+
+  <van-field value="{{userInfo.userSignature}}" label="个性签名" type="textarea" input-align="right" placeholder="请输入新个性签名" maxlength="80" show-word-limit="{{true}}" autosize="true" bind:blur="changeUserInfo" data-item="userSignature"/>
+
+  <view class="btn-group">
+    <van-button type="warning" size="small" bind:click="reset">恢复</van-button>
+    <van-button type="danger" color="#dc4238" size="small" bind:click="submitInfo">提交</van-button>
+  </view>
+  <view class="{{feedbackClass}}">
+    {{feedback}}
+  </view>
+
+  <van-popup show="{{ show }}" round position="bottom" bind:close="onClose">
+    <van-picker columns="{{ ['男','女'] }}" bind:cancel="onClose" bind:confirm="changeUserInfo" data-item="userSex" show-toolbar title="选择性别" />
+  </van-popup>
+
+</van-cell-group>
+

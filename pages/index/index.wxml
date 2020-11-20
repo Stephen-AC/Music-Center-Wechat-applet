@@ -1,0 +1,37 @@
+<!-- header -->
+<view class="header">
+  <view class="search-box">
+    <input class="search-input" type="text" confirm-type="search" placeholder="请输入歌曲名字" placeholder-class="placehoder-class"  bindconfirm="toSearch" bindinput="getSearchKey" />
+    <van-icon name="search" size="55rpx" color="#ecf0f1" bindtap="toSearch"/>
+  </view>
+</view>
+
+<!-- body -->
+<view class="body">
+  <!-- swiper -->
+  <swiper indicator-dots indicator-color="white" indicator-active-color="#b62e1a" autoplay interval="4000" duration="1500" circular class="swiper">
+      <block wx:for="{{banner}}" wx:for-item="bannerItem">
+        <swiper-item class="swiper-item" bindtap="bannerSongPlay" data-song-id="{{bannerItem.id}}">
+          <image src="{{bannerItem.picUrl}}" mode="widthFix"></image>
+        </swiper-item>
+      </block>
+  </swiper>
+  <!-- toplist -->
+  <view class="top-list">
+    <view class="top-list-title">热门榜单推荐</view>
+    <view class="top-list-context">
+      <block wx:for="{{topList}}" wx:for-item="topItem">
+        <view class="top-list-context-item" bindtap="toTopListDetail" data-topid="{{topItem.id}}">
+          <view class="top-list-img">
+            <van-image width="200rpx" height="200rpx" fit="cover" src="{{topItem.coverImgUrl}}" />
+          </view>
+          <view class="top-list-songs">
+            <block wx:for="{{topItem.tracks}}" wx:for-item="trackItem" wx:for-index="trackIndex">
+              <text class="song">{{trackIndex+1}}. {{trackItem.first}}--{{trackItem.second}}</text>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

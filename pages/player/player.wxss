@@ -1,0 +1,103 @@
+page {
+  overflow: hidden;
+}
+
+.body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.player {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.315);
+  z-index: -1;
+}
+
+.player-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(40rpx);
+  -webkit-filter: blur(40rpx);
+}
+
+.player-bg-image {
+  height: 100%;
+  width: 100%;
+}
+
+.song-name {
+  margin: 15rpx auto;
+  margin-top: 40rpx;
+  font-size: 40rpx;
+  color: #fff;
+}
+
+.singer {
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.album {
+  margin: 30rpx auto;
+}
+
+.album-image {
+  width: 75vw;
+  height: 75vw;
+  border: 10rpx solid rgba(255, 255, 255, 0.274);
+}
+
+.progress-box {
+  width: 90vw;
+  margin: 25rpx auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.progress {
+  width: 80%;
+}
+
+.progress-text {
+  font-size: 23rpx;
+  width: 10%;
+  margin: auto 10rpx;
+}
+
+.custom-button {
+  display: block;
+  width: 25rpx;
+  height: 25rpx;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+
+.player-options {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.player-options-item {
+  width: 100rpx;
+}
+.player-options-item image {
+  width: 100%;
+}

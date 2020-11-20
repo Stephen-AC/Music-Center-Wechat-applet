@@ -1,0 +1,18 @@
+/* pages/editInfo/editInfo.wxss */
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 40rpx auto;
+}
+
+.feedback-success {
+  text-align: center;
+  color: forestgreen;
+}
+
+.feedback-error {
+  text-align: center;
+  color: #dc4238;
+}
