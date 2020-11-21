@@ -12,7 +12,7 @@ App({
     if (token && userInfo && userPhone) {
       if(token) {
         wx.request({
-          url: 'http://localhost:8080/checkAuthc',
+          url: 'http://47.110.241.150:8080/music-center/checkAuthc',
           data: token,
           method: "POST",
           success: (res) => {
@@ -29,7 +29,7 @@ App({
               let recentPlay = wx.getStorageSync('recentPlay');
               if (!recentPlay) {
                 wx.request({
-                  url: 'http://localhost:8080/getRecentPlaySongs',
+                  url: 'http://47.110.241.150:8080/music-center/getRecentPlaySongs',
                   method: "POST",
                   data: token,
                   success: (res) => {
@@ -51,7 +51,7 @@ App({
     var token = wx.getStorageSync('token')
     if (token) {
       wx.request({
-        url: 'http://localhost:8080/userBack',
+        url: 'http://47.110.241.150:8080/music-center/userBack',
         method: "POST",
         data: token,
         success: (res) => {
@@ -66,7 +66,7 @@ App({
     if (token) {
       let recentPlay = wx.getStorageSync('recentPlay');
       wx.request({
-        url: 'http://localhost:8080/addRecentPlaySongs',
+        url: 'http://47.110.241.150:8080/music-center/addRecentPlaySongs',
         method: "POST",
         header: {
           "content-type": "application/x-www-form-urlencoded"
@@ -80,7 +80,7 @@ App({
         }
       });
       wx.request({
-        url: 'http://localhost:8080/userQuit',
+        url: 'http://47.110.241.150:8080/music-center/userQuit',
         method: "POST",
         data: token
       })

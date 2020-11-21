@@ -33,7 +33,7 @@ Page({
       success (res) {
         const tempFilePaths = res.tempFilePaths
         wx.uploadFile({
-          url: 'http://localhost:8080/uploadImage', //仅为示例，非真实的接口地址
+          url: 'http://47.110.241.150:8080/music-center/uploadImage', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
@@ -72,7 +72,7 @@ Page({
   logout() {
     var that = this;
     wx.request({
-      url: 'http://localhost:8080/logout',
+      url: 'http://47.110.241.150:8080/music-center/logout',
       method: 'POST',
       data: wx.getStorageSync('token'),
       success: (res) => {
