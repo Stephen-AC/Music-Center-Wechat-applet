@@ -6,17 +6,20 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
+    // 验证缓存中是否有记住用户
     var token = wx.getStorageSync('token')
     var userInfo = wx.getStorageSync('userInfo')
     var userPhone = wx.getStorageSync('userPhone')
     if (token && userInfo && userPhone) {
       if(token) {
+        
         wx.request({
           url: 'http://47.110.241.150:8080/music-center/checkAuthc',
           data: token,
           method: "POST",
           success: (res) => {
             console.log(res);
+            // 验证用户是否已过期
             if (res.data.code==401) {
               this.globalData.authc = false;
               wx.clearStorage({
@@ -47,6 +50,7 @@ App({
     
   },
 
+  // 用户在过期时间内回到应用则删除token过期时间
   onShow: function() {
     var token = wx.getStorageSync('token')
     if (token) {
@@ -61,9 +65,11 @@ App({
     }
   },
 
+  // 用户隐藏应用则设置token过期时间，存储最近播放记录到数据库
   onHide: function() {
     var token = wx.getStorageSync('token')
     if (token) {
+      // 存储最近播放记录到数据库
       let recentPlay = wx.getStorageSync('recentPlay');
       wx.request({
         url: 'http://47.110.241.150:8080/music-center/addRecentPlaySongs',

@@ -53,6 +53,7 @@ Page({
     }
   },
 
+  // 恢复用户数据
   reset() {
     this.setData({
       userPhone: app.globalData.userPhone,
@@ -61,6 +62,7 @@ Page({
     })
   },
 
+  // 校验手机号是否正确
   changePhoneNumber(event) {
     let myreg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
     if (!myreg.test(event.detail.value)) {
@@ -76,6 +78,7 @@ Page({
     
   },
 
+  // 修改用户信息
   changeUserInfo(event) {
     let tempUserInfo = this.data.userInfo
     tempUserInfo[event.currentTarget.dataset.item] = event.detail.value;

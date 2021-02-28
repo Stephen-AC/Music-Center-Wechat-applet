@@ -11,6 +11,7 @@ Page({
     bgImg: "",
   },
 
+  // 播放单曲
   playSong(event) {
     app.globalData.playingSongId = event.currentTarget.dataset.songId;
     app.globalData.swichSong = true;
@@ -25,6 +26,7 @@ Page({
    */
   onLoad: function (options) {
     let id = options.id;
+    // 榜单列表
     if (options.pre=="index") {
       wx.request({
         url: 'http://47.110.241.150:3000/playlist/detail?id='+id,
@@ -35,6 +37,7 @@ Page({
           });
         }
       });
+      // 我的喜欢列表
     } else if(options.pre=="fav") {
       let fav = wx.getStorageSync('userInfo').userFavourite;
       let ids = fav.substring(1, fav.length-1);
@@ -54,6 +57,7 @@ Page({
           })
         }
       })
+      // 最近播放列表
     } else if(options.pre == "rec") {
       let recPlayStr = JSON.stringify(wx.getStorageSync('recentPlay'));
       let ids = recPlayStr.substring(1, recPlayStr.length-1);

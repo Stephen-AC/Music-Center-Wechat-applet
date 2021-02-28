@@ -49,6 +49,7 @@ Page({
     })
   },
 
+  // 手机号校验
   phoneNumberCheck() {
     let myreg = /^[1][3,4,5,7,8,9][0-9]{9}$/;
     if (!myreg.test(this.data.registerPhoneNumber)) {
@@ -66,6 +67,7 @@ Page({
     }
   },
 
+  // 密码校验
   passwordCheck() {
     if (this.data.comfirmPassword!=this.data.registerPassword) {
       this.setData({
@@ -119,7 +121,9 @@ Page({
             method: "POST",
             data: resData.data,
             success: (res3) => {
-              wx.setStorageSync('recentPlay', JSON.parse(res3.data.data))
+              if (res3.data.code==200) {
+                wx.setStorageSync('recentPlay', JSON.parse(res3.data.data))
+              }
             }
           })
         } else if (resData.code == 500) {

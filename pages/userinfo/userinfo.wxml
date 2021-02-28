@@ -10,7 +10,8 @@
   <view wx:if="{{authc}}" class="authc">
     <!-- 头像 -->
     <view class="avatar">
-      <van-image round fit="cover" width="300rpx" height="300rpx" src="{{'http://47.110.241.150:8080/music-center/'+userInfo.userAvatar}}" bindtap="changeAvatar"/>
+      <van-image round fit="cover" width="300rpx" height="300rpx" src="{{userInfo.userAvatar==''?'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1158712074,3363251307&fm=11&gp=0.jpg':'http://47.110.241.150:8080/music-center/'+userInfo.userAvatar}}" bindtap="changeAvatar"/>
+      <text></text>
     </view>
     <!-- 昵称 -->
     <view class="alias">

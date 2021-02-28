@@ -1,10 +1,12 @@
 <view class="body">
   <view class="player">
+    <!-- 背景 -->
     <view class="player-bg">
       <image class="player-bg-image" src="{{songInfo.imgUrl}}" mode="scaleToFill"></image>
     </view>
     <view class="player-bg-black">
     </view>
+    <!-- 歌曲信息 -->
     <view class="song-name">{{songInfo.name}}</view>
     <view class="singer">{{songInfo.singer}}</view>
     <view class="album">
@@ -13,6 +15,7 @@
     <view class="song-options" bindtap="like" data-id="{{songInfo.id}}">
       <van-icon name="{{like_icon}}" color="#dc4238" size="65rpx"/>
     </view>
+    <!-- 进度条 -->
     <view class="progress-box">
       <view class="progress-text">{{format.getFormatDuringTime(currentTime)}}</view>
       <view class="progress">
@@ -23,6 +26,7 @@
       </view>
       <view class="progress-text">{{format.getFormatDuringTime(songInfo.duration)}}</view>
     </view>
+    <!-- 播放和停止 -->
     <view class="player-options">
       <view class="player-options-item" mode="widthFix" bindtap="playAndPause">
         <image src="{{playPauseImg}}" mode="widthFix"></image>

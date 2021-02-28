@@ -16,7 +16,7 @@ Page({
       searchKey: event.detail.value
     })
   },
-
+  // 搜索
   toSearch(event) {
     wx.request({
       url: 'http://47.110.241.150:3000/search?keywords=' + this.data.searchKey,
@@ -27,7 +27,7 @@ Page({
       }
     })
   },
-
+// 播放音乐
   playSong(event) {
     app.globalData.playingSongId = event.currentTarget.dataset.songId;
     app.globalData.swichSong = true;
@@ -40,6 +40,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    // keyword回显
     let keyWord = options.keyWord;
     this.setData({
       searchKey: keyWord

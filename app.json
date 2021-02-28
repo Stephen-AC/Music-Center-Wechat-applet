@@ -12,7 +12,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#dc4238",
-    "navigationBarTitleText": "巴黎音乐馆",
+    "navigationBarTitleText": "3118003921的音乐馆",
     "navigationBarTextStyle":"white"
   },
   "tabBar": {
@@ -24,7 +24,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "遇见咖啡音乐",
+        "text": "遇见知音",
         "iconPath": "./assets/images/home.png",
         "selectedIconPath": "./assets/images/home-active.png"
       },
@@ -36,7 +36,7 @@
       },
       {
         "pagePath": "pages/userinfo/userinfo",
-        "text": "毕生所爱",
+        "text": "我的主页",
         "iconPath": "./assets/images/my.png",
         "selectedIconPath": "./assets/images/my-active.png"
       }

@@ -21,10 +21,13 @@ Page({
 
   },
 
+  // 收藏
   like(event) {
+    // 验证用户是否登录
     if (wx.getStorageSync('token') && event.currentTarget.dataset.id != 0) {
       let userInfo = wx.getStorageSync('userInfo');
       let fav = JSON.parse(userInfo.userFavourite);
+      // 验证用户是否已经收藏该歌曲
       if (fav.indexOf(app.globalData.playingSongId) != -1) {
         fav.splice(fav.indexOf(app.globalData.playingSongId),1);
         this.setData({
@@ -36,6 +39,7 @@ Page({
           like_icon: "like"
         });
       }
+      // 将用户收藏信息存入数据库
       wx.request({
         url: 'http://47.110.241.150:8080/music-center/addFavouriteSong',
         method: "POST",
@@ -68,10 +72,12 @@ Page({
     }
   },
 
+  // 拖动进度条时
   drag(event) {
     this.bgam.pause();
   },
 
+  // 改变播放进度
   seek(event) {
     this.bgam.seek(event.detail);
     this.setData({
@@ -80,6 +86,7 @@ Page({
     this.bgam.play();
   },
 
+  // 点击播放和暂停
   playAndPause(event) {
     var that = this;
     wx.getBackgroundAudioPlayerState({
@@ -112,16 +119,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // 判断是否要切歌
     if (app.globalData.swichSong) {
       this.bgam.stop();
       let playingSongId = app.globalData.playingSongId;
       let customSongInfo = {};
       let singers = "";
       let that = this;
+      // 获取歌曲信息
       wx.request({
         url: 'http://47.110.241.150:3000/song/detail?ids='+playingSongId,
         success: (res) => {
           let songInfo = res.data.songs[0];
+          // 格式化歌手信息
           songInfo.ar.forEach(element => {
             singers = singers + element.name + '/';
           });
@@ -140,6 +150,7 @@ Page({
           });
         }
       });
+      // 监听音乐是否可以播放
       this.bgam.onCanplay(fun => {
         wx.getBackgroundAudioPlayerState({
           success(res) {
@@ -151,6 +162,7 @@ Page({
           }
         });
       });
+      // 监听播放进度，并改变slider的值
       this.bgam.onTimeUpdate((fun) => {
         wx.getBackgroundAudioPlayerState({
           success: (result) => {
@@ -160,11 +172,13 @@ Page({
           },
         })
       });
+      // 监听音乐暂停
       this.bgam.onPause((fun) => {
         that.setData({
           playPauseImg: '/assets/images/player/player-play.png'
         })
       });
+      // 监听音乐播放
       this.bgam.onPlay((fun) => {
         that.setData({
           playPauseImg: '/assets/images/player/player-stop.png'
@@ -182,6 +196,7 @@ Page({
           })
         }
       };
+      // 添加到最近播放缓存中
       let recentPlay = wx.getStorageSync('recentPlay');
       if (recentPlay) {
         if (recentPlay.indexOf(playingSongId)==-1) {

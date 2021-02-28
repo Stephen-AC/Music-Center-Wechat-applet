@@ -26,14 +26,16 @@ Page({
 
   },
 
+  // 换头像
   changeAvatar(event) {
     let that = this;
     wx.chooseImage({
       count: 1,
       success (res) {
         const tempFilePaths = res.tempFilePaths
+        // 上传头像
         wx.uploadFile({
-          url: 'http://47.110.241.150:8080/music-center/uploadImage', //仅为示例，非真实的接口地址
+          url: 'http://47.110.241.150:8080/music-center/uploadImage',
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
@@ -57,18 +59,21 @@ Page({
     })
   },
 
+  // 前往我的收藏列表
   toFavList() {
     wx.navigateTo({
       url: '/pages/songList/songList?pre=fav',
     });
   },
 
+  // 前往最近播放列表
   toRecList() {
     wx.navigateTo({
       url: '/pages/songList/songList?pre=rec',
     });
   },
 
+  // 退出登录
   logout() {
     var that = this;
     wx.request({
