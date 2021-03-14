@@ -20,7 +20,7 @@ Page({
     if(this.data.phoneFeedback == "") {
       let userInfo = this.data.userInfo
       wx.request({
-        url: 'http://47.110.241.150:8080/music-center/updateUserInfo',
+        url: 'http://39.108.132.79:8080/music-center/updateUserInfo',
         method: "POST",
         header: {
           "content-type": "application/x-www-form-urlencoded"

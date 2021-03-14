@@ -87,7 +87,7 @@ Page({
   login() {
     let that = this;
     wx.request({
-      url: 'http://47.110.241.150:8080/music-center/login',
+      url: 'http://39.108.132.79:8080/music-center/login',
       data: {
         "userPhone": this.data.phoneNumber,
         "userPassword": this.data.password
@@ -100,7 +100,7 @@ Page({
           app.globalData.userPhone = that.data.phoneNumber;
           wx.setStorageSync("token", resData.data);
           wx.request({
-            url: 'http://47.110.241.150:8080/music-center/userInfo',
+            url: 'http://39.108.132.79:8080/music-center/userInfo',
             data: resData.data,
             method: "POST",
             success(res2) {
@@ -117,7 +117,7 @@ Page({
             }
           });
           wx.request({
-            url: 'http://47.110.241.150:8080/music-center/getRecentPlaySongs',
+            url: 'http://39.108.132.79:8080/music-center/getRecentPlaySongs',
             method: "POST",
             data: resData.data,
             success: (res3) => {
@@ -142,7 +142,7 @@ Page({
     if (this.data.feedback=="") {
       if (this.passwordCheck() && this.phoneNumberCheck()) {
         wx.request({
-          url: 'http://47.110.241.150:8080/music-center/register',
+          url: 'http://39.108.132.79:8080/music-center/register',
           data: {
             "userPhone": this.data.registerPhoneNumber,
             "userPassword": this.data.registerPassword

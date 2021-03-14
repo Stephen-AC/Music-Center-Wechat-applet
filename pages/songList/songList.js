@@ -29,7 +29,7 @@ Page({
     // 榜单列表
     if (options.pre=="index") {
       wx.request({
-        url: 'http://47.110.241.150:3000/playlist/detail?id='+id,
+        url: 'http://39.108.132.79:3000/playlist/detail?id='+id,
         success: (res) => {
           this.setData({
             topList: res.data.playlist.tracks,
@@ -49,7 +49,7 @@ Page({
         })
       }
       wx.request({
-        url: 'http://47.110.241.150:3000/song/detail?ids='+ids,
+        url: 'http://39.108.132.79:3000/song/detail?ids='+ids,
         success: (res) => {
           this.setData({
             topList: res.data.songs,
@@ -69,7 +69,7 @@ Page({
         })
       }
       wx.request({
-        url: 'http://47.110.241.150:3000/song/detail?ids='+ids,
+        url: 'http://39.108.132.79:3000/song/detail?ids='+ids,
         success: (res) => {
           this.setData({
             topList: res.data.songs,

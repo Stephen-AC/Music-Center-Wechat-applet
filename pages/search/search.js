@@ -19,7 +19,7 @@ Page({
   // 搜索
   toSearch(event) {
     wx.request({
-      url: 'http://47.110.241.150:3000/search?keywords=' + this.data.searchKey,
+      url: 'http://39.108.132.79:3000/search?keywords=' + this.data.searchKey,
       success: (res) => {
         this.setData({
           songsList: res.data.result.songs
@@ -46,7 +46,7 @@ Page({
       searchKey: keyWord
     })
     wx.request({
-      url: 'http://47.110.241.150:3000/search?keywords='+keyWord,
+      url: 'http://39.108.132.79:3000/search?keywords='+keyWord,
       success: (res) => {
         this.setData({
           songsList: res.data.result.songs

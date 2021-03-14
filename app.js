@@ -14,7 +14,7 @@ App({
       if(token) {
         
         wx.request({
-          url: 'http://47.110.241.150:8080/music-center/checkAuthc',
+          url: 'http://39.108.132.79:8080/music-center/checkAuthc',
           data: token,
           method: "POST",
           success: (res) => {
@@ -32,7 +32,7 @@ App({
               let recentPlay = wx.getStorageSync('recentPlay');
               if (!recentPlay) {
                 wx.request({
-                  url: 'http://47.110.241.150:8080/music-center/getRecentPlaySongs',
+                  url: 'http://39.108.132.79:8080/music-center/getRecentPlaySongs',
                   method: "POST",
                   data: token,
                   success: (res) => {
@@ -55,7 +55,7 @@ App({
     var token = wx.getStorageSync('token')
     if (token) {
       wx.request({
-        url: 'http://47.110.241.150:8080/music-center/userBack',
+        url: 'http://39.108.132.79:8080/music-center/userBack',
         method: "POST",
         data: token,
         success: (res) => {
@@ -72,7 +72,7 @@ App({
       // 存储最近播放记录到数据库
       let recentPlay = wx.getStorageSync('recentPlay');
       wx.request({
-        url: 'http://47.110.241.150:8080/music-center/addRecentPlaySongs',
+        url: 'http://39.108.132.79:8080/music-center/addRecentPlaySongs',
         method: "POST",
         header: {
           "content-type": "application/x-www-form-urlencoded"
@@ -86,7 +86,7 @@ App({
         }
       });
       wx.request({
-        url: 'http://47.110.241.150:8080/music-center/userQuit',
+        url: 'http://39.108.132.79:8080/music-center/userQuit',
         method: "POST",
         data: token
       })
@@ -100,6 +100,6 @@ App({
     songInfo: {
     },
     playingSongId: 0,
-    swichSong: false,
+    swichSong: false
   }
 })

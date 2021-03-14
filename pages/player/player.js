@@ -41,7 +41,7 @@ Page({
       }
       // 将用户收藏信息存入数据库
       wx.request({
-        url: 'http://47.110.241.150:8080/music-center/addFavouriteSong',
+        url: 'http://39.108.132.79:8080/music-center/addFavouriteSong',
         method: "POST",
         header: {
           "content-type": "application/x-www-form-urlencoded"
@@ -128,7 +128,7 @@ Page({
       let that = this;
       // 获取歌曲信息
       wx.request({
-        url: 'http://47.110.241.150:3000/song/detail?ids='+playingSongId,
+        url: 'http://39.108.132.79:3000/song/detail?ids='+playingSongId,
         success: (res) => {
           let songInfo = res.data.songs[0];
           // 格式化歌手信息

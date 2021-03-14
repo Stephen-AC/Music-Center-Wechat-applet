@@ -45,7 +45,7 @@ Page({
     var that = this;
     wx.getStorageSync('key')
     wx.request({
-      url: 'http://47.110.241.150:3000/toplist/detail',
+      url: 'http://39.108.132.79:3000/toplist/detail',
       success(res) {
         that.setData({
           topList: res.data.list.slice(0, 4)
@@ -53,7 +53,7 @@ Page({
       }
     });
     wx.request({
-      url: 'http://47.110.241.150:3000/personalized/newsong',
+      url: 'http://39.108.132.79:3000/personalized/newsong',
       success(res) {
         that.setData({
           banner: res.data.result

@@ -35,7 +35,7 @@ Page({
         const tempFilePaths = res.tempFilePaths
         // 上传头像
         wx.uploadFile({
-          url: 'http://47.110.241.150:8080/music-center/uploadImage',
+          url: 'http://39.108.132.79:8080/music-center/uploadImage',
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
@@ -77,7 +77,7 @@ Page({
   logout() {
     var that = this;
     wx.request({
-      url: 'http://47.110.241.150:8080/music-center/logout',
+      url: 'http://39.108.132.79:8080/music-center/logout',
       method: 'POST',
       data: wx.getStorageSync('token'),
       success: (res) => {
